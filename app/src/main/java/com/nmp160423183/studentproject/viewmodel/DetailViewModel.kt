@@ -1,6 +1,7 @@
 package com.nmp160423183.studentproject.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +22,9 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
 //        studentLD.value = student1
         queue = Volley.newRequestQueue(getApplication())
         val url = "https://www.jsonkeeper.com/b/LLMW"
-        val stringreq = StringRequest(Request.Method.GET, url, {},{})
+        val stringreq = StringRequest(Request.Method.GET, url, {},{
+            Log.d("Volley_status", it.message.toString())
+        })
         stringreq.tag = TAG
         queue?.add(stringreq)
         studentLD.value = student
