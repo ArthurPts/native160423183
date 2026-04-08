@@ -32,7 +32,7 @@ class StudentDetailFragment : Fragment() {
 
         //instantiate viewModel
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        viewModel.fetch(student)
+        viewModel.fetch(student.id)
 
         observeViewModel()
     }
